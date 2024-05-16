@@ -76,6 +76,9 @@ target_link_libraries( ${PROJECT_NAME} PRIVATE RCSwitch )
 # Shared libraries need flag -fPIC
 set_property( TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE TRUE ) 
 
+# Enable interprocedural optimizations if supported by the compiler
+set_property( TARGET ${PROJECT_NAME} PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE )
+
 # VERSION_INFO is defined by setup.py and passed into the C++ code here
 target_compile_definitions( ${PROJECT_NAME} PRIVATE VERSION_INFO=${VERSION_INFO} )
 
