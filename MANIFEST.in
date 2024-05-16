@@ -1,0 +1,11 @@
+
+include README.md
+global-include LICENSE*
+include CMakeLists.txt
+include pyRCSwitch.cpp
+include libs/rc-switch-lib/RCSwitch.*
+include libs/rc-switch-lib/CMakeLists.txt
+include libs/pybind11/CMakeLists.txt
+graft libs/pybind11/include
+graft libs/pybind11/tools
+global-exclude .*
