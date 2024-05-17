@@ -10,7 +10,7 @@
 
 from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
-import os, pathlib, subprocess
+import os
 
 # Add cmake_lists_dir to Extension
 class CMakeExtension(Extension):
@@ -51,7 +51,7 @@ class cmake_build_ext(build_ext):
                 '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_{}={}'.format(build_type.upper(), lib_temp),
                 # Other intermediate static libraries are placed in a temporary build directory instead
                 '-DCMAKE_ARCHIVE_OUTPUT_DIRECTORY_{}={}'.format(build_type.upper(), self.build_temp),
-                # In this example, we pass in the version to C++. You might not need to.
+                # VERSION_INFO is defined in setup() and passed into the C++ here
                 '-DVERSION_INFO={}'.format(self.distribution.get_version())
             ]
 
@@ -67,11 +67,9 @@ class cmake_build_ext(build_ext):
             subprocess.check_call(['cmake', '--build', '.', '--config', build_type], cwd=self.build_temp )
             print ("CMake build done!\n")
 
-
-
 setup(
     name="pyRCSwitch",
-    version="1.0.0",
+    version="0.1.0",
     author="Jorge Rivera",
     author_email="latchdevel@users.noreply.github.com",
     description="Python module to wrap the RCSwitch Common Library",
@@ -87,7 +85,7 @@ setup(
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",
         "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
-        "Programming Language :: C",
+        "Programming Language :: C++",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3 :: Only",
