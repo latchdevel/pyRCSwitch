@@ -1,9 +1,10 @@
 # pyRCSwitch
 Python C++ extension module to wrap the **RCSwitch Common Library**.
 
-Works on any **libc++** compatible system with Python v3.6 or higher, such as macOS, FreeBSD, Linux, and even Windows.
+Works on any **libc++** compatible system with Python v3.7 or higher, such as macOS, FreeBSD, Linux, and even Windows.
 
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
+[![Build tests](https://github.com/latchdevel/pyRCSwitch/actions/workflows/BuildTests.yml/badge.svg)](https://github.com/latchdevel/pyRCSwitch/actions/workflows/BuildTests.yml)
 
 The [RCSwitch Common Library](https://github.com/latchdevel/rc-switch-lib) simulates capturing and reproducing operation codes of radio control devices like the popular low cost power outlet sockets, which works on the 315Mhz or 433MHz frequency in AM ASK/OOK modulation.
 Its main use is to **encode** RC codes into pulse trains and **decode** pulse trains into RC codes, based on some supported protocols.
