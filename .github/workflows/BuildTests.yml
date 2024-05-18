@@ -1,0 +1,47 @@
+# This is the name of the workflow, visible on GitHub UI.
+name: 'Build tests'
+
+# Controls when the action will run. 
+# Here we tell GitHub to run the workflow when a commit.
+on: 
+  push:
+  pull_request:
+
+  # Scheduled the first day of every month at 00:00h UTC
+  schedule:
+    - cron:  '0 0 1 * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      # Set to false so that GitHub does not cancel all jobs
+      # in progress if any array job fails.
+      fail-fast: false
+
+      # The matrix will produce one job for each configuration:
+      matrix:
+        platform: [windows-latest, macos-13, ubuntu-latest]
+        python-version: ["3.7", "3.11"]
+
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: true
+
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Add requirements
+      run: python -m pip install --upgrade wheel setuptools
+
+    - name: Build and install
+      run: pip install --verbose .
+
+    - name: Test
+      run: python -m unittest discover -v
