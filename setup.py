@@ -96,4 +96,5 @@ setup(
     ],
     platforms=["any"],
     python_requires=">=3.6",
+    test_suite = 'test_pyRCSwitch'
 )

@@ -3,6 +3,7 @@ include README.md
 global-include LICENSE*
 include CMakeLists.txt
 include pyRCSwitch.cpp
+include test_pyRCSwitch.py
 include libs/rc-switch-lib/RCSwitch.*
 include libs/rc-switch-lib/CMakeLists.txt
 include libs/pybind11/CMakeLists.txt
