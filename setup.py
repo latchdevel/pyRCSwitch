@@ -95,6 +95,6 @@ setup(
         "Operating System :: OS Independent"
     ],
     platforms=["any"],
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     test_suite = 'test_pyRCSwitch'
 )
