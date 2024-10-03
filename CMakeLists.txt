@@ -77,7 +77,14 @@ target_link_libraries( ${PROJECT_NAME} PRIVATE RCSwitch )
 set_property( TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE TRUE ) 
 
 # Enable interprocedural optimizations if supported by the compiler
-set_property( TARGET ${PROJECT_NAME} PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE )
+include(CheckIPOSupported)
+check_ipo_supported(RESULT iporesult)
+if(iporesult)
+  message (STATUS "IPO supported")
+  set_property( TARGET ${PROJECT_NAME} PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE )
+else()
+  message (STATUS "IPO not supported")
+endif()
 
 # VERSION_INFO is defined by setup.py and passed into the C++ code here
 target_compile_definitions( ${PROJECT_NAME} PRIVATE VERSION_INFO=${VERSION_INFO} )
