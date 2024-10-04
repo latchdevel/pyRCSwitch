@@ -15,7 +15,7 @@ set(CMAKE_CXX_STANDARD 11)
 if(NOT BUILD_COMPILER)
   # Set complier identification
   SET(BUILD_COMPILER "${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}" )
-  MESSAGE( STATUS "C Compiler: " ${BUILD_COMPILER} )
+  MESSAGE( STATUS "C++ compiler: " ${BUILD_COMPILER} )
 endif()
 
 # VERSION_INFO is defined by setup.py and passed into the C++
@@ -46,7 +46,7 @@ endif()
 
 # Setting build type to "debug" add only -g 
 if(CMAKE_BUILD_TYPE STREQUAL "DEBUG") 
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DDEBUG")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DDEBUG")
 endif()
 
 # Set C++ flags
