@@ -1,7 +1,7 @@
 # pyRCSwitch
 Python C++ extension module to wrap the **RCSwitch Common Library**.
 
-Works on any **libc++** compatible system with Python v3.7 or higher, such as macOS, FreeBSD, Linux, and even Windows.
+Works on any **libc++** compatible system with Python v3.8 or higher, such as macOS, FreeBSD, Linux, and even Windows.
 
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 [![Build tests](https://github.com/latchdevel/pyRCSwitch/actions/workflows/BuildTests.yml/badge.svg)](https://github.com/latchdevel/pyRCSwitch/actions/workflows/BuildTests.yml)

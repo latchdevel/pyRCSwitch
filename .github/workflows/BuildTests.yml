@@ -24,7 +24,7 @@ jobs:
       # The matrix will produce one job for each configuration:
       matrix:
         platform: [windows-latest, macos-13, ubuntu-latest]
-        python-version: ["3.7", "3.11"]
+        python-version: ["3.8", "3.11"]
 
     runs-on: ${{ matrix.platform }}
 
