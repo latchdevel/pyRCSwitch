@@ -84,7 +84,6 @@ setup(
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
         "Programming Language :: C++",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
@@ -95,6 +94,5 @@ setup(
         "Operating System :: OS Independent"
     ],
     platforms=["any"],
-    python_requires=">=3.8",
-    test_suite = 'test_pyRCSwitch'
+    python_requires=">=3.8"
 )
