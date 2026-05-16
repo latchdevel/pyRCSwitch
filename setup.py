@@ -8,9 +8,26 @@
    License GNU Lesser General Public License v3.0.
 """
 
+import os
+import platform
+import sysconfig
+
+# Ensure macOS deployment target is at least the version Python was built with
+if platform.system() == "Darwin":
+    # Get the version Python was compiled against or default to 11.0
+    python_target = sysconfig.get_config_var('MACOSX_DEPLOYMENT_TARGET') or "11.0"
+    
+    # Get existing deployment target from environment or default to 11.0
+    current_target = os.environ.get("MACOSX_DEPLOYMENT_TARGET", "11.0")
+    
+    # Use the higher version to avoid warnings and ensure compatibility
+    if float(python_target) > float(current_target):
+        os.environ["MACOSX_DEPLOYMENT_TARGET"] = python_target
+    else:
+        os.environ["MACOSX_DEPLOYMENT_TARGET"] = current_target
+
 from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
-import os
 
 # Add cmake_lists_dir to Extension
 class CMakeExtension(Extension):
