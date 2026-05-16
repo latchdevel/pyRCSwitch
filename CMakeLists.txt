@@ -61,6 +61,9 @@ elseif(MSVC)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -W4 ${MSVC_DISABLED_WARNINGS_STR}")
 endif()
 
+# Use the modern CMake FindPython discovery mode
+set(PYBIND11_FINDPYTHON NEW)
+
 # Add pybind11 directory
 add_subdirectory( libs/pybind11 EXCLUDE_FROM_ALL )
 
