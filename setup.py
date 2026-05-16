@@ -69,7 +69,7 @@ class cmake_build_ext(build_ext):
 
 setup(
     name="pyRCSwitch",
-    version="0.1.0",
+    version="0.1.1",
     author="Jorge Rivera",
     author_email="latchdevel@users.noreply.github.com",
     description="Python module to wrap the RCSwitch Common Library",

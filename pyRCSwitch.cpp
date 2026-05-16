@@ -64,5 +64,5 @@ PYBIND11_MODULE(pyRCSwitch, module) {
 #else
       module.attr("__version__") = "dev";
 #endif
-
+      module.attr("__pybind11__") = py::make_tuple(PYBIND11_VERSION_MAJOR, PYBIND11_VERSION_MINOR, PYBIND11_VERSION_PATCH);
 }
